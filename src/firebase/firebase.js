@@ -18,16 +18,25 @@ firebase.initializeApp(config);
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-const signInWithGoogle = () => auth.signInWithPopup(provider);
+const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
-const createUserProfileDocument = async (userAuth, additionalData) => {
-  const userRef = firestore.doc(`users/${userAuth.uid}`);
+const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      unsubscribe();
+      resolve(user);
+    }, reject);
+  });
+};
+
+const createUserProfileDocument = async (user, additionalData) => {
+  const userRef = firestore.doc(`users/${user.uid}`);
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
-    const { displayName, email } = userAuth;
+    const { displayName, email } = user;
     const createdAt = new Date();
 
     try {
@@ -79,6 +88,8 @@ const convertCollectionsSnapshotToMap = (collections) => {
 export {
   auth,
   firestore,
+  googleProvider,
+  getCurrentUser,
   signInWithGoogle,
   createUserProfileDocument,
   addCollectionAndDocuments,
