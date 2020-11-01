@@ -11,7 +11,9 @@ import {
 const CollectionPreview = ({ title, routeName, items, history, match }) => {
   return (
     <CollectionPreviewContainer>
-      <TitleContainer onClick={() => history.push(`${match.url}/${routeName}`)}>
+      <TitleContainer
+        onClick={() => history.push(`${match.path}/${routeName}`)}
+      >
         {title.toUpperCase()}
       </TitleContainer>
       <PreviewContainer>
