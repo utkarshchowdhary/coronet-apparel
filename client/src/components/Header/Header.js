@@ -20,7 +20,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
   return (
     <HeaderContainer>
       <LogoContainer to="/">
-        <Logo className="logo" />
+        <Logo />
       </LogoContainer>
       <OptionsContainer>
         <OptionLink to="/shop">SHOP</OptionLink>
