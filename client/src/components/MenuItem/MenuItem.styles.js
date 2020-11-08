@@ -23,7 +23,7 @@ export const ContentContainer = styled.div`
 
 export const MenuItemContainer = styled.div`
   min-width: 30%;
-  height: 240px;
+  height: 300px;
   flex: auto;
   display: flex;
   align-items: center;
@@ -31,24 +31,30 @@ export const MenuItemContainer = styled.div`
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+
   &:hover {
     cursor: pointer;
+
     & ${BackgroundImageContainer} {
       transform: scale(1.1);
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
+
     & ${ContentContainer} {
       opacity: 0.9;
     }
   }
+
   &:first-child {
     margin-right: 7.5px;
   }
+
   &:last-child {
     margin-left: 7.5px;
   }
-  &:nth-last-child(-n + 2) {
-    height: 380px;
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 `;
 
