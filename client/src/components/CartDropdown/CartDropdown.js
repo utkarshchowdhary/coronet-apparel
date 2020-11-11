@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
@@ -13,9 +13,38 @@ import {
   CartDropdownButton,
 } from './CartDropdown.styles';
 
-const CartDropdown = ({ cartItems, history, dispatch }) => {
+const CartDropdown = ({ cartItems, history, toggleCartHidden }) => {
+  const ref = useRef(null);
+
+  const clickListener = useCallback(
+    (e) => {
+      if (!ref.current.contains(e.target)) {
+        toggleCartHidden();
+      }
+    },
+    [toggleCartHidden]
+  );
+
+  const escapeListener = useCallback(
+    (e) => {
+      if (e.key === 'Escape') {
+        toggleCartHidden();
+      }
+    },
+    [toggleCartHidden]
+  );
+
+  useEffect(() => {
+    document.addEventListener('click', clickListener);
+    document.addEventListener('keyup', escapeListener);
+    return () => {
+      document.removeEventListener('click', clickListener);
+      document.removeEventListener('keyup', escapeListener);
+    };
+  }, [clickListener, escapeListener]);
+
   return (
-    <CartDropdownContainer>
+    <CartDropdownContainer ref={ref}>
       <CartItemsContainer>
         {cartItems.map((cartItem) => (
           <CartItem key={cartItem.id} item={cartItem} />
@@ -27,7 +56,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => {
       <CartDropdownButton
         onClick={() => {
           history.push('/checkout');
-          dispatch(toggleCartHidden());
+          toggleCartHidden();
         }}
       >
         GO TO CHECKOUT
@@ -40,4 +69,6 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
 });
 
-export default withRouter(connect(mapStateToProps)(CartDropdown));
+export default withRouter(
+  connect(mapStateToProps, { toggleCartHidden })(CartDropdown)
+);
