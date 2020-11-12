@@ -9,9 +9,12 @@ import {
   ContentSubtitle,
 } from './MenuItem.styles';
 
-const MenuItem = ({ title, imageUrl, linkUrl, history, match }) => {
+const MenuItem = ({ section, history, match }) => {
+  const { title, imageUrl } = section;
   return (
-    <MenuItemContainer onClick={() => history.push(`${match.url}${linkUrl}`)}>
+    <MenuItemContainer
+      onClick={() => history.push(`${match.path}shop/${title.toLowerCase()}`)}
+    >
       <BackgroundImageContainer imageUrl={imageUrl} />
       <ContentContainer>
         <ContentTitle>{title.toUpperCase()}</ContentTitle>
