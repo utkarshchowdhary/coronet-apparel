@@ -3,14 +3,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyDJCP5RYDd1obUf11iOSt-2w0HvDLHWB-U',
-  authDomain: 'coronet-db.firebaseapp.com',
-  databaseURL: 'https://coronet-db.firebaseio.com',
-  projectId: 'coronet-db',
-  storageBucket: 'coronet-db.appspot.com',
-  messagingSenderId: '606295833630',
-  appId: '1:606295833630:web:4248d8e0d78bd49ced420f',
-  measurementId: 'G-LS8QZZW8FX',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 firebase.initializeApp(config);
