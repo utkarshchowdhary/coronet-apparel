@@ -18,6 +18,7 @@ const CheckoutPage = lazy(() => import('./pages/CheckoutPage/CheckoutPage'));
 const SignInAndSignUpPage = lazy(() =>
   import('./pages/SignInAndSignUpPage/SignInAndSignUpPage')
 );
+const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'));
 
 const App = ({ currentUser, checkUserSession }) => {
   useEffect(() => {
@@ -34,6 +35,7 @@ const App = ({ currentUser, checkUserSession }) => {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/shop" component={ShopPage} />
+              <Route path="/contact" component={ContactPage} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <Route
                 exact

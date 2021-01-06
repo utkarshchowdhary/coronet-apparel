@@ -6,10 +6,10 @@ import {
   FormInputLabel,
 } from './FormInput.styles';
 
-const FormInput = ({ label, ...props }) => {
+const FormInput = ({ element = 'input', label, ...props }) => {
   return (
     <GroupContainer>
-      <FormInputContainer {...props} />
+      <FormInputContainer as={element} {...props} />
       {label ? (
         <FormInputLabel value={props.value}>{label}</FormInputLabel>
       ) : null}

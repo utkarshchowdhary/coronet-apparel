@@ -1,0 +1,55 @@
+.contact-page {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+
+  .contact-page__info {
+    width: 380px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-image: url(/zig-zag.svg);
+
+    h1 {
+      margin: 1rem;
+      text-align: center;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 1rem;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  .contact-page__form {
+    width: 380px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    .button {
+      display: flex;
+      justify-content: center;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: unset;
+    margin: 1rem;
+    align-items: center;
+    > *:first-child {
+      margin-bottom: 50px;
+    }
+  }
+}

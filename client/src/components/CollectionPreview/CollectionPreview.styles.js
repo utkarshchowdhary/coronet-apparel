@@ -21,7 +21,7 @@ export const PreviewContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 40px 10px;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
 `;
