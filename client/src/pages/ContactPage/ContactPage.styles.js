@@ -55,3 +55,24 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const SpinnerContainer = styled.div`
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 5px solid #e1e2e2;
+  border-radius: 50%;
+  border-top-color: #7da2a9;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+`;

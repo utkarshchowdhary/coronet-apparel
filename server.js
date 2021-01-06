@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const compression = require('compression');
 const enforce = require('express-sslify');
 
@@ -43,6 +44,32 @@ app.post('/payment', (req, res) => {
       res.status(500).send({ error: stripeErr });
     } else {
       res.status(200).send({ success: stripeRes });
+    }
+  });
+});
+
+app.post('/send', (req, res) => {
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    auth: {
+      user: process.env.SMTP_USER_NAME,
+      pass: process.env.SMTP_PASSWORD,
+    },
+  });
+
+  const mailOptions = {
+    from: `${req.body.name} <${req.body.email}>`,
+    to: process.env.SMTP_SEND_TO,
+    subject: 'Coronet Apparel Automated Mail',
+    text: req.body.message,
+  };
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      res.status(500).json({ error: 'message not sent: an error occurred' });
+    } else {
+      res.status(200).json({ message: `message sent: ${info.messageId}` });
     }
   });
 });

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import FormInput from '../../components/FormInput/FormInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
@@ -8,6 +9,7 @@ import {
   InfoContainer,
   FormContainer,
   ButtonContainer,
+  SpinnerContainer,
 } from './ContactPage.styles';
 
 const ContactPage = () => {
@@ -15,12 +17,38 @@ const ContactPage = () => {
     name: '',
     email: '',
     message: '',
+    isLoading: false,
   });
 
-  const { name, email, message } = formState;
+  const { name, email, message, isLoading } = formState;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormState({ ...formState, isLoading: true });
+    axios({
+      url: 'send',
+      method: 'post',
+      data: {
+        name,
+        email,
+        message,
+      },
+    })
+      .then((response) => {
+        alert(response.data.message);
+      })
+      .catch((error) => {
+        console.log('Mail error: ', error);
+        alert('There was an issue sending your request');
+      })
+      .finally(() => {
+        setFormState({
+          name: '',
+          email: '',
+          message: '',
+          isLoading: false,
+        });
+      });
   };
 
   const handleChange = (e) => {
@@ -70,7 +98,9 @@ const ContactPage = () => {
             required
           />
           <ButtonContainer>
-            <CustomButton type="submit">Send</CustomButton>
+            <CustomButton type="submit">
+              {isLoading ? <SpinnerContainer></SpinnerContainer> : <p>Send</p>}
+            </CustomButton>
           </ButtonContainer>
         </form>
       </FormContainer>
