@@ -17,14 +17,14 @@ const ContactPage = () => {
     name: '',
     email: '',
     message: '',
-    isLoading: false,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { name, email, message, isLoading } = formState;
+  const { name, email, message } = formState;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormState({ ...formState, isLoading: true });
+    setIsLoading(true);
     axios({
       url: 'send',
       method: 'post',
@@ -42,11 +42,11 @@ const ContactPage = () => {
         alert('There was an issue sending your request');
       })
       .finally(() => {
+        setIsLoading(false);
         setFormState({
           name: '',
           email: '',
           message: '',
-          isLoading: false,
         });
       });
   };
