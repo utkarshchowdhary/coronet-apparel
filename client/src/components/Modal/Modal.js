@@ -4,7 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 import Backdrop from '../Backdrop/Backdrop';
 
-import './Modal.scss';
+import {
+  ModalContainer,
+  MessageContainer,
+  OptionsContainer,
+  ButtonContainer,
+} from './Modal.styles';
 
 const Modal = ({ message, hide }) => {
   const history = useHistory();
@@ -12,17 +17,15 @@ const Modal = ({ message, hide }) => {
   const content = (
     <>
       <Backdrop hide={hide} />
-      <div className="modal">
-        <h4>{message}</h4>
-        <div className="options">
-          <button className="btn" onClick={hide}>
-            Okay
-          </button>
-          <button className="btn" onClick={() => history.push('/')}>
+      <ModalContainer>
+        <MessageContainer>{message}</MessageContainer>
+        <OptionsContainer>
+          <ButtonContainer onClick={hide}>Okay</ButtonContainer>
+          <ButtonContainer onClick={() => history.push('/')}>
             Exit
-          </button>
-        </div>
-      </div>
+          </ButtonContainer>
+        </OptionsContainer>
+      </ModalContainer>
     </>
   );
 

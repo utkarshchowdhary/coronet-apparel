@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './Backdrop.scss';
+import { BackdropContainer } from './Backdrop.styles';
 
 const Backdrop = ({ hide }) => {
-  const content = <div className="backdrop" onClick={hide}></div>;
+  const content = <BackdropContainer onClick={hide}></BackdropContainer>;
 
   return ReactDOM.createPortal(
     content,

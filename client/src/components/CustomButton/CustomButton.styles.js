@@ -43,7 +43,7 @@ const getButtonStyles = (props) => {
 };
 
 export const CustomButtonContainer = styled.button`
-  min-width: 165px;
+  min-width: 150px;
   height: 50px;
   display: flex;
   justify-content: center;
