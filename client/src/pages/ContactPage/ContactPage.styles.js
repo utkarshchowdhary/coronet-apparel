@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const ContactPageContainer = styled.div`
-  width: 850px;
+  max-width: 850px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex: auto;
   margin: 30px auto;
 
   @media screen and (max-width: 768px) {

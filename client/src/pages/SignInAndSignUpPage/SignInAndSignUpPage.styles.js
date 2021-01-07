@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const SignInAndSignUpContainer = styled.div`
-  width: 850px;
+  max-width: 850px;
   display: flex;
   justify-content: space-between;
+  flex: auto;
   margin: auto;
 
   @media screen and (max-width: 768px) {

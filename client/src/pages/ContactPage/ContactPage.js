@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import FormInput from '../../components/FormInput/FormInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import Modal from '../../components/Modal/Modal';
 
 import {
   ContactPageContainer,
@@ -19,6 +20,7 @@ const ContactPage = () => {
     message: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [output, setOutput] = useState('');
 
   const { name, email, message } = formState;
 
@@ -26,7 +28,7 @@ const ContactPage = () => {
     e.preventDefault();
     setIsLoading(true);
     axios({
-      url: 'send',
+      url: 'https://coronet-apparel.herokuapp.com/send',
       method: 'post',
       data: {
         name,
@@ -35,11 +37,12 @@ const ContactPage = () => {
       },
     })
       .then((response) => {
-        alert(response.data.message);
+        setOutput(response.data.message);
       })
       .catch((error) => {
-        console.log('Mail error: ', error);
-        alert('There was an issue sending your request');
+        setOutput(
+          error.response ? error.response.data.error : 'Message not sent'
+        );
       })
       .finally(() => {
         setIsLoading(false);
@@ -51,6 +54,10 @@ const ContactPage = () => {
       });
   };
 
+  const hideOutputHandler = () => {
+    setOutput('');
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -58,53 +65,62 @@ const ContactPage = () => {
   };
 
   return (
-    <ContactPageContainer>
-      <InfoContainer>
-        <h1>Contact Me</h1>
-        <p>
-          This seemingly impersonal contact form aside will deliver your message
-          personally to my inbox. I usually reply within 48 hours.
-        </p>
-        <p>
-          Not a fan of contact forms? Feel free to send me an email to
-          utkarshkororo@gmail.com or message me using the form aside.
-        </p>
-      </InfoContainer>
-      <FormContainer>
-        <h1>Hi, there!</h1>
-        <form onSubmit={handleSubmit}>
-          <FormInput
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-            label="Name"
-            required
-          />
-          <FormInput
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            label="Email"
-            required
-          />
-          <FormInput
-            element="textarea"
-            name="message"
-            value={message}
-            onChange={handleChange}
-            label="Message"
-            required
-          />
-          <ButtonContainer>
-            <CustomButton type="submit">
-              {isLoading ? <SpinnerContainer></SpinnerContainer> : <p>Send</p>}
-            </CustomButton>
-          </ButtonContainer>
-        </form>
-      </FormContainer>
-    </ContactPageContainer>
+    <>
+      {!isLoading && output && (
+        <Modal message={output} hide={hideOutputHandler} />
+      )}
+      <ContactPageContainer>
+        <InfoContainer>
+          <h1>Contact Me</h1>
+          <p>
+            This seemingly impersonal contact form aside will deliver your
+            message personally to my inbox. I usually reply within 48 hours.
+          </p>
+          <p>
+            Not a fan of contact forms? Feel free to send me an email to
+            utkarshkororo@gmail.com or message me using the form aside.
+          </p>
+        </InfoContainer>
+        <FormContainer>
+          <h1>Hi, there!</h1>
+          <form onSubmit={handleSubmit}>
+            <FormInput
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              label="Name"
+              required
+            />
+            <FormInput
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              label="Email"
+              required
+            />
+            <FormInput
+              element="textarea"
+              name="message"
+              value={message}
+              onChange={handleChange}
+              label="Message"
+              required
+            />
+            <ButtonContainer>
+              <CustomButton type="submit">
+                {isLoading ? (
+                  <SpinnerContainer></SpinnerContainer>
+                ) : (
+                  <p>Send</p>
+                )}
+              </CustomButton>
+            </ButtonContainer>
+          </form>
+        </FormContainer>
+      </ContactPageContainer>
+    </>
   );
 };
 
