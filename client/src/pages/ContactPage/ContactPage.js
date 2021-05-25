@@ -28,7 +28,7 @@ const ContactPage = () => {
     e.preventDefault();
     setIsLoading(true);
     axios({
-      url: 'https://coronet-apparel.herokuapp.com/send',
+      url: 'send',
       method: 'post',
       data: {
         name,
