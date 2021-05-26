@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import {
   selectCartItems,
-  selectCartTotal,
-} from '../../redux/cart/cart.selectors';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
-import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
-import StripeCheckoutButton from '../../components/StripeCheckoutButton/StripeCheckoutButton';
-import Modal from '../../components/Modal/Modal';
+  selectCartTotal
+} from '../../redux/cart/cart.selectors'
+import { selectCurrentUser } from '../../redux/user/user.selectors'
+import CheckoutItem from '../../components/CheckoutItem/CheckoutItem'
+import StripeCheckoutButton from '../../components/StripeCheckoutButton/StripeCheckoutButton'
+import Modal from '../../components/Modal/Modal'
 
 import {
   CheckoutPageContainer,
@@ -16,15 +16,15 @@ import {
   HeaderBlockContainer,
   TotalContainer,
   WarningContainer,
-  RemindContainer,
-} from './CheckoutPage.styles';
+  RemindContainer
+} from './CheckoutPage.styles'
 
 const CheckoutPage = ({ cartItems, total, currentUser }) => {
-  const [output, setOutput] = useState('');
+  const [output, setOutput] = useState('')
 
   const hideOutputHandler = () => {
-    setOutput('');
-  };
+    setOutput('')
+  }
 
   return (
     <>
@@ -64,13 +64,13 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
         )}
       </CheckoutPageContainer>
     </>
-  );
-};
+  )
+}
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
-  currentUser: selectCurrentUser,
-});
+  currentUser: selectCurrentUser
+})
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default connect(mapStateToProps)(CheckoutPage)

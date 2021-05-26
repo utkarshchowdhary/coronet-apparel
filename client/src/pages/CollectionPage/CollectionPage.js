@@ -1,16 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { selectCollection } from '../../redux/shop/shop.selectors';
-import CollectionItem from '../../components/CollectionItem/CollectionItem';
+import React from 'react'
+import { connect } from 'react-redux'
+import { selectCollection } from '../../redux/shop/shop.selectors'
+import CollectionItem from '../../components/CollectionItem/CollectionItem'
 
 import {
   CollectionPageContainer,
   CollectionTitle,
-  CollectionItemsContainer,
-} from './CollectionPage.styles';
+  CollectionItemsContainer
+} from './CollectionPage.styles'
 
 const CollectionPage = ({ collection }) => {
-  const { title, items } = collection;
+  const { title, items } = collection
   return (
     <CollectionPageContainer>
       <CollectionTitle>{title.toUpperCase()}</CollectionTitle>
@@ -20,11 +20,11 @@ const CollectionPage = ({ collection }) => {
         ))}
       </CollectionItemsContainer>
     </CollectionPageContainer>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.collectionId)(state),
-});
+  collection: selectCollection(ownProps.match.params.collectionId)(state)
+})
 
-export default connect(mapStateToProps)(CollectionPage);
+export default connect(mapStateToProps)(CollectionPage)

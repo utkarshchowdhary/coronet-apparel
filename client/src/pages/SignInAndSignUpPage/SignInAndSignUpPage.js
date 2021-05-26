@@ -1,8 +1,8 @@
-import React from 'react';
-import SignIn from '../../components/SignIn/SignIn';
-import SignUp from '../../components/SignUp/SignUp';
+import React from 'react'
+import SignIn from '../../components/SignIn/SignIn'
+import SignUp from '../../components/SignUp/SignUp'
 
-import { SignInAndSignUpContainer } from './SignInAndSignUpPage.styles';
+import { SignInAndSignUpContainer } from './SignInAndSignUpPage.styles'
 
 const SignInAndSignUpPage = () => {
   return (
@@ -10,7 +10,7 @@ const SignInAndSignUpPage = () => {
       <SignIn />
       <SignUp />
     </SignInAndSignUpContainer>
-  );
-};
+  )
+}
 
-export default SignInAndSignUpPage;
+export default SignInAndSignUpPage

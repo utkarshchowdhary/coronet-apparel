@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -18,18 +18,18 @@ export const ModalContainer = styled.div`
   background: white;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
   z-index: 100;
-`;
+`
 
 export const MessageContainer = styled.h4`
   font-size: 1.1rem;
   margin-bottom: 1.6rem;
   margin-top: 0;
-`;
+`
 
 export const OptionsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 export const ButtonContainer = styled.button`
   color: inherit;
@@ -59,4 +59,4 @@ export const ButtonContainer = styled.button`
   @media screen and (max-width: 768px) {
     margin-right: 1.2rem;
   }
-`;
+`

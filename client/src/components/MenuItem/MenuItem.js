@@ -1,16 +1,16 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import {
   MenuItemContainer,
   BackgroundImageContainer,
   ContentContainer,
   ContentTitle,
-  ContentSubtitle,
-} from './MenuItem.styles';
+  ContentSubtitle
+} from './MenuItem.styles'
 
 const MenuItem = ({ section, history, match }) => {
-  const { title, imageUrl } = section;
+  const { title, imageUrl } = section
   return (
     <MenuItemContainer
       onClick={() => history.push(`${match.path}shop/${title.toLowerCase()}`)}
@@ -21,7 +21,7 @@ const MenuItem = ({ section, history, match }) => {
         <ContentSubtitle>SHOP NOW</ContentSubtitle>
       </ContentContainer>
     </MenuItemContainer>
-  );
-};
+  )
+}
 
-export default withRouter(MenuItem);
+export default withRouter(MenuItem)

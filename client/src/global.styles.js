@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import alternatingArrowheadSVG from './assets/alternating-arrowhead.svg';
+import { createGlobalStyle } from 'styled-components'
+import alternatingArrowheadSVG from './assets/alternating-arrowhead.svg'
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -22,4 +22,4 @@ a {
   text-decoration: none;
   color: black;
 }
-`;
+`

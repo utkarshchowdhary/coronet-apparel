@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const BackgroundImageContainer = styled.div`
   width: 100%;
@@ -6,7 +6,7 @@ export const BackgroundImageContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
-`;
+`
 
 export const ContentContainer = styled.div`
   height: 90px;
@@ -19,7 +19,7 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
-`;
+`
 
 export const MenuItemContainer = styled.div`
   min-width: 30%;
@@ -56,16 +56,16 @@ export const MenuItemContainer = styled.div`
   @media screen and (max-width: 768px) {
     height: 200px;
   }
-`;
+`
 
 export const ContentTitle = styled.span`
   font-weight: bold;
   margin-bottom: 6px;
   font-size: 22px;
   color: #4a4a4a;
-`;
+`
 
 export const ContentSubtitle = styled.span`
   font-weight: lighter;
   font-size: 16px;
-`;
+`

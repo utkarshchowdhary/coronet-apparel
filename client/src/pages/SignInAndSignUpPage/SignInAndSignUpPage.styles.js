@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const SignInAndSignUpContainer = styled.div`
   max-width: 850px;
@@ -15,4 +15,4 @@ export const SignInAndSignUpContainer = styled.div`
       margin-bottom: 50px;
     }
   }
-`;
+`

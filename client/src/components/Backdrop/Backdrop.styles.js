@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const BackdropContainer = styled.div`
   position: fixed;
@@ -8,4 +8,4 @@ export const BackdropContainer = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.75);
   z-index: 10;
-`;
+`

@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { useHistory } from 'react-router-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { useHistory } from 'react-router-dom'
 
-import Backdrop from '../Backdrop/Backdrop';
+import Backdrop from '../Backdrop/Backdrop'
 
 import {
   ModalContainer,
   MessageContainer,
   OptionsContainer,
-  ButtonContainer,
-} from './Modal.styles';
+  ButtonContainer
+} from './Modal.styles'
 
 const Modal = ({ message, hide }) => {
-  const history = useHistory();
+  const history = useHistory()
 
   const content = (
     <>
@@ -27,9 +27,9 @@ const Modal = ({ message, hide }) => {
         </OptionsContainer>
       </ModalContainer>
     </>
-  );
+  )
 
-  return ReactDOM.createPortal(content, document.getElementById('modal-hook'));
-};
+  return ReactDOM.createPortal(content, document.getElementById('modal-hook'))
+}
 
-export default Modal;
+export default Modal

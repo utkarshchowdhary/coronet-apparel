@@ -1,23 +1,23 @@
-import React from 'react';
+import React from 'react'
 
 import {
   ErrorImageOverlay,
   ErrorImageContainer,
-  ErrorImageText,
-} from './ErrorBoundary.styles';
+  ErrorImageText
+} from './ErrorBoundary.styles'
 
 class ErrorBoundary extends React.Component {
   constructor() {
-    super();
-    this.state = { hasError: false };
+    super()
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError(error) {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   componentDidCatch(error, info) {
-    console.log(error);
+    console.log(error)
   }
 
   render() {
@@ -27,11 +27,11 @@ class ErrorBoundary extends React.Component {
           <ErrorImageContainer imageUrl="https://i.imgur.com/U3vTGjX.png" />
           <ErrorImageText>There’s a Leak in the Website</ErrorImageText>
         </ErrorImageOverlay>
-      );
+      )
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundary

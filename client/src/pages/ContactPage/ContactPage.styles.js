@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import zigZagSVG from '../../assets/zig-zag.svg';
+import styled from 'styled-components'
+import zigZagSVG from '../../assets/zig-zag.svg'
 
 export const ContactPageContainer = styled.div`
   max-width: 850px;
@@ -19,7 +19,7 @@ export const ContactPageContainer = styled.div`
       margin-bottom: 50px;
     }
   }
-`;
+`
 
 export const InfoContainer = styled.div`
   width: 380px;
@@ -40,7 +40,7 @@ export const InfoContainer = styled.div`
     font-size: 20px;
     font-weight: 700;
   }
-`;
+`
 
 export const FormContainer = styled.div`
   width: 380px;
@@ -53,12 +53,12 @@ export const FormContainer = styled.div`
     text-align: center;
     font-weight: 700;
   }
-`;
+`
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-`;
+`
 
 export const SpinnerContainer = styled.div`
   display: inline-block;
@@ -79,4 +79,4 @@ export const SpinnerContainer = styled.div`
       -webkit-transform: rotate(360deg);
     }
   }
-`;
+`

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const SignInContainer = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const SignInContainer = styled.div`
   @media screen and (max-width: 768px) {
     padding: 2rem;
   }
-`;
+`
 
 export const ButtonsBarContainer = styled.div`
   display: flex;
@@ -18,4 +18,4 @@ export const ButtonsBarContainer = styled.div`
   button:first-child {
     margin-right: 1.2rem;
   }
-`;
+`

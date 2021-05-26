@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CollectionPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
   align-items: center;
-`;
+`
 
 export const TitleContainer = styled.h1`
   font-size: 28px;
@@ -14,7 +14,7 @@ export const TitleContainer = styled.h1`
   &:hover {
     color: grey;
   }
-`;
+`
 
 export const PreviewContainer = styled.div`
   display: grid;
@@ -24,4 +24,4 @@ export const PreviewContainer = styled.div`
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
-`;
+`

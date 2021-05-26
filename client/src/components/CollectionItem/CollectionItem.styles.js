@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import CustomButton from '../CustomButton/CustomButton';
+import styled from 'styled-components'
+import CustomButton from '../CustomButton/CustomButton'
 
 export const AddButton = styled(CustomButton)`
   width: 80%;
@@ -14,7 +14,7 @@ export const AddButton = styled(CustomButton)`
     opacity: 0.9;
     padding: 0 10px;
   }
-`;
+`
 
 export const BackgroundImage = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ export const BackgroundImage = styled.div`
   background-position: center;
   margin-bottom: 5px;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
-`;
+`
 
 export const CollectionItemContainer = styled.div`
   width: 22vw;
@@ -52,7 +52,7 @@ export const CollectionItemContainer = styled.div`
       }
     }
   }
-`;
+`
 
 export const CollectionFooterContainer = styled.div`
   width: 100%;
@@ -60,4 +60,4 @@ export const CollectionFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-`;
+`

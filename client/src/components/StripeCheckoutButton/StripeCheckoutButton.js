@@ -1,13 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import axios from 'axios';
-import StripeCheckout from 'react-stripe-checkout';
-import { clearCart } from '../../redux/cart/cart.actions';
+import React from 'react'
+import { connect } from 'react-redux'
+import axios from 'axios'
+import StripeCheckout from 'react-stripe-checkout'
+import { clearCart } from '../../redux/cart/cart.actions'
 
 const StripeCheckoutButton = ({ price, setOutput, clearCart }) => {
-  const priceForStripe = price * 100;
+  const priceForStripe = price * 100
   const publishableKey =
-    'pk_test_51He2W9I7khmW0eo4VjuYYUYmEOR5VLwRtmJrD68tsu8TO5sBezt9Zat1xDxsQ55wy1pX4mFrRibrS8dfbqvsxFtp00clfFlk73';
+    'pk_test_51He2W9I7khmW0eo4VjuYYUYmEOR5VLwRtmJrD68tsu8TO5sBezt9Zat1xDxsQ55wy1pX4mFrRibrS8dfbqvsxFtp00clfFlk73'
 
   const onToken = (token) => {
     axios({
@@ -15,21 +15,21 @@ const StripeCheckoutButton = ({ price, setOutput, clearCart }) => {
       method: 'post',
       data: {
         amount: priceForStripe,
-        token,
-      },
+        token
+      }
     })
       .then((response) => {
-        console.log(response);
-        clearCart();
-        setOutput('Payment successful');
+        console.log(response)
+        clearCart()
+        setOutput('Payment successful')
       })
       .catch((error) => {
-        console.log('Payment error: ', error);
+        console.log('Payment error: ', error)
         setOutput(
           'There was an issue with your payment. Please use a valid credit card.'
-        );
-      });
-  };
+        )
+      })
+  }
 
   return (
     <StripeCheckout
@@ -43,11 +43,11 @@ const StripeCheckoutButton = ({ price, setOutput, clearCart }) => {
       token={onToken}
       stripeKey={publishableKey}
     />
-  );
-};
+  )
+}
 
 const mapDispatchToProps = (dispatch) => ({
-  clearCart: () => dispatch(clearCart()),
-});
+  clearCart: () => dispatch(clearCart())
+})
 
-export default connect(null, mapDispatchToProps)(StripeCheckoutButton);
+export default connect(null, mapDispatchToProps)(StripeCheckoutButton)

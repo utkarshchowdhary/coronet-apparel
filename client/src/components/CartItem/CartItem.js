@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 import {
   CartItemContainer,
   CartItemImage,
-  ItemDetailsContainer,
-} from './CartItem.styles';
+  ItemDetailsContainer
+} from './CartItem.styles'
 
 const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
   return (
@@ -17,7 +17,7 @@ const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
         </span>
       </ItemDetailsContainer>
     </CartItemContainer>
-  );
-};
+  )
+}
 
-export default React.memo(CartItem);
+export default React.memo(CartItem)

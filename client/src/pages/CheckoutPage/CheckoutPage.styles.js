@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CheckoutPageContainer = styled.div`
   width: 55%;
@@ -16,7 +16,7 @@ export const CheckoutPageContainer = styled.div`
   @media screen and (max-width: 768px) {
     width: 90%;
   }
-`;
+`
 
 export const CheckoutHeaderContainer = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ export const CheckoutHeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
-`;
+`
 
 export const HeaderBlockContainer = styled.div`
   text-transform: capitalize;
@@ -40,13 +40,13 @@ export const HeaderBlockContainer = styled.div`
       width: 12%;
     }
   }
-`;
+`
 
 export const TotalContainer = styled.div`
   margin-top: 30px;
   margin-left: auto;
   font-size: 36px;
-`;
+`
 
 export const WarningContainer = styled.div`
   text-align: center;
@@ -54,7 +54,7 @@ export const WarningContainer = styled.div`
   font-size: 24px;
   font-weight: 700;
   color: red;
-`;
+`
 
 export const RemindContainer = styled.div`
   text-align: center;
@@ -62,4 +62,4 @@ export const RemindContainer = styled.div`
   font-size: 24px;
   font-weight: 700;
   color: #361999;
-`;
+`

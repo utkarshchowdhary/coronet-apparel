@@ -1,68 +1,68 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react'
+import axios from 'axios'
 
-import FormInput from '../../components/FormInput/FormInput';
-import CustomButton from '../../components/CustomButton/CustomButton';
-import Modal from '../../components/Modal/Modal';
+import FormInput from '../../components/FormInput/FormInput'
+import CustomButton from '../../components/CustomButton/CustomButton'
+import Modal from '../../components/Modal/Modal'
 
 import {
   ContactPageContainer,
   InfoContainer,
   FormContainer,
   ButtonContainer,
-  SpinnerContainer,
-} from './ContactPage.styles';
+  SpinnerContainer
+} from './ContactPage.styles'
 
 const ContactPage = () => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    message: '',
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [output, setOutput] = useState('');
+    message: ''
+  })
+  const [isLoading, setIsLoading] = useState(false)
+  const [output, setOutput] = useState('')
 
-  const { name, email, message } = formState;
+  const { name, email, message } = formState
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault()
+    setIsLoading(true)
     axios({
       url: 'send',
       method: 'post',
       data: {
         name,
         email,
-        message,
-      },
+        message
+      }
     })
       .then((response) => {
-        setOutput(response.data.message);
+        setOutput(response.data.message)
       })
       .catch((error) => {
         setOutput(
           error.response ? error.response.data.error : 'Message not sent'
-        );
+        )
       })
       .finally(() => {
-        setIsLoading(false);
+        setIsLoading(false)
         setFormState({
           name: '',
           email: '',
-          message: '',
-        });
-      });
-  };
+          message: ''
+        })
+      })
+  }
 
   const hideOutputHandler = () => {
-    setOutput('');
-  };
+    setOutput('')
+  }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
 
-    setFormState({ ...formState, [name]: value });
-  };
+    setFormState({ ...formState, [name]: value })
+  }
 
   return (
     <>
@@ -121,7 +121,7 @@ const ContactPage = () => {
         </FormContainer>
       </ContactPageContainer>
     </>
-  );
-};
+  )
+}
 
-export default ContactPage;
+export default ContactPage

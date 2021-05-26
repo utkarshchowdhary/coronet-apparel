@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import FormInput from '../FormInput/FormInput';
-import CustomButton from '../CustomButton/CustomButton';
-import { signUpStart } from '../../redux/user/user.actions';
-import { SignUpContainer } from './SignUp.styles';
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import FormInput from '../FormInput/FormInput'
+import CustomButton from '../CustomButton/CustomButton'
+import { signUpStart } from '../../redux/user/user.actions'
+import { SignUpContainer } from './SignUp.styles'
 
 const SignUp = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
     displayName: '',
     email: '',
     password: '',
-    confirmPassword: '',
-  });
+    confirmPassword: ''
+  })
 
-  const { displayName, email, password, confirmPassword } = userCredentials;
+  const { displayName, email, password, confirmPassword } = userCredentials
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (password !== confirmPassword) {
-      alert("password's don't match");
-      return;
+      alert("password's don't match")
+      return
     }
 
-    signUpStart({ email, password, displayName });
-  };
+    signUpStart({ email, password, displayName })
+  }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
 
-    setUserCredentials({ ...userCredentials, [name]: value });
-  };
+    setUserCredentials({ ...userCredentials, [name]: value })
+  }
 
   return (
     <SignUpContainer>
@@ -72,11 +72,11 @@ const SignUp = ({ signUpStart }) => {
         <CustomButton type="submit">SIGN UP</CustomButton>
       </form>
     </SignUpContainer>
-  );
-};
+  )
+}
 
 const mapDispatchToProps = (dispatch) => ({
-  signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials)),
-});
+  signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials))
+})
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(null, mapDispatchToProps)(SignUp)
