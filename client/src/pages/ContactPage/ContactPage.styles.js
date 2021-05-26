@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import zigZagSVG from '../../assets/zig-zag.svg';
 
 export const ContactPageContainer = styled.div`
   max-width: 850px;
@@ -13,6 +14,7 @@ export const ContactPageContainer = styled.div`
     width: unset;
     margin: 1rem;
     align-items: center;
+
     > *:first-child {
       margin-bottom: 50px;
     }
@@ -24,7 +26,7 @@ export const InfoContainer = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background-image: url(/zig-zag.svg);
+  background-image: url(${zigZagSVG});
 
   h1 {
     margin: 1rem;
@@ -66,7 +68,7 @@ export const SpinnerContainer = styled.div`
   border-radius: 50%;
   border-top-color: #7da2a9;
   animation: spin 1s ease-in-out infinite;
-  -webkit-animation: spin 1s ease-in-out infinite;
+
   @keyframes spin {
     to {
       -webkit-transform: rotate(360deg);

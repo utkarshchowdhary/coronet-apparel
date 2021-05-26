@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import alternatingArrowheadSVG from './assets/alternating-arrowhead.svg';
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -9,7 +10,7 @@ body {
   margin: 0;
   font-family: 'Open Sans Condensed';
   padding: 20px 60px;
-  background-image: url(/alternating-arrowhead.svg);
+  background-image: url(${alternatingArrowheadSVG});
   background-attachment: fixed;
 
   @media screen and (max-width: 768px) {
