@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 const compression = require('compression')
 const enforce = require('express-sslify')
 
-require('dotenv').config()
+if (process.env.NODE_ENV === 'development') require('dotenv').config()
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 const app = express()
