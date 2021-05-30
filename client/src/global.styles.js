@@ -16,7 +16,7 @@ body {
   background-attachment: fixed;
 
   @media screen and (max-width: 768px) {
-    padding: 10px;
+    padding: 10px 20px;
   }
 }
 
