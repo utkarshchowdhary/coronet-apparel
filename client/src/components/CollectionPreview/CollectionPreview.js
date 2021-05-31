@@ -8,7 +8,11 @@ import {
   TitleContainer
 } from './CollectionPreview.styles'
 
-const CollectionPreview = ({ title, routeName, items, history, match }) => {
+const CollectionPreview = ({
+  collection: { title, routeName, items },
+  history,
+  match
+}) => {
   return (
     <CollectionPreviewContainer>
       <TitleContainer
@@ -18,7 +22,7 @@ const CollectionPreview = ({ title, routeName, items, history, match }) => {
       </TitleContainer>
       <PreviewContainer>
         {items
-          .filter((item, idx) => idx < 4)
+          .filter((item, i) => i < 4)
           .map((item) => (
             <CollectionItem key={item.id} item={item} />
           ))}

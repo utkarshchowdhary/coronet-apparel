@@ -1,14 +1,16 @@
 .checkout-page {
   width: 55%;
-  min-height: 78.8vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 50px auto 0;
 
+  button {
+    margin-left: auto;
+    margin-top: 50px;
+  }
+
   .checkout-header {
-    width: 100%;
-    padding: 10px 0;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid darkgrey;
@@ -29,15 +31,11 @@
     font-size: 36px;
   }
 
-  button {
-    margin-left: auto;
-    margin-top: 50px;
-  }
-
-  .test-warning {
+  .warning {
     text-align: center;
     margin-top: 40px;
     font-size: 24px;
+    font-weight: 700;
     color: red;
   }
 }

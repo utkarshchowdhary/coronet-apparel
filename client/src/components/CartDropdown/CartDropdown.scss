@@ -1,14 +1,14 @@
 .cart-dropdown {
-  position: absolute;
-  width: 275px;
   height: 340px;
+  width: 275px;
+  position: absolute;
+  top: 90px;
+  right: 40px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   border: 1px solid black;
   background-color: white;
-  top: 90px;
-  right: 40px;
   z-index: 5;
 
   .empty-message {
@@ -18,8 +18,6 @@
 
   .cart-items {
     max-height: 240px;
-    display: flex;
-    flex-direction: column;
     overflow: auto;
   }
 

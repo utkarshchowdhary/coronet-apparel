@@ -20,7 +20,7 @@ const Modal = ({ message, hide }) => {
       <ModalContainer>
         <MessageContainer>{message}</MessageContainer>
         <OptionsContainer>
-          <ButtonContainer onClick={hide}>Okay</ButtonContainer>
+          <ButtonContainer onClick={hide}>Return</ButtonContainer>
           <ButtonContainer onClick={() => history.push('/')}>
             Exit
           </ButtonContainer>

@@ -5,7 +5,7 @@ import {
   emailSignInStart
 } from '../../redux/user/user.actions'
 import FormInput from '../FormInput/FormInput'
-import CustomButton from '../CustomButton/CustomButton'
+import Button from '../Button/Button'
 
 import { SignInContainer, ButtonsBarContainer } from './SignIn.styles'
 
@@ -52,14 +52,10 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
           required
         />
         <ButtonsBarContainer>
-          <CustomButton type="submit">Sign in</CustomButton>
-          <CustomButton
-            type="button"
-            onClick={googleSignInStart}
-            isGoogleSignIn
-          >
+          <Button type="submit">Sign in</Button>
+          <Button type="button" onClick={googleSignInStart} isGoogleSignIn>
             Sign in with Google
-          </CustomButton>
+          </Button>
         </ButtonsBarContainer>
       </form>
     </SignInContainer>

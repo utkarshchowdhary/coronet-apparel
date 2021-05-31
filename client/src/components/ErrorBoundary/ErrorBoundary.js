@@ -7,24 +7,21 @@ import {
 } from './ErrorBoundary.styles'
 
 class ErrorBoundary extends React.Component {
-  constructor() {
-    super()
-    this.state = { hasError: false }
-  }
+  state = { hasError: false }
 
   static getDerivedStateFromError(error) {
     return { hasError: true }
   }
 
-  componentDidCatch(error, info) {
-    console.log(error)
+  componentDidCatch(error, errorInfo) {
+    console.log(error, errorInfo)
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <ErrorImageOverlay>
-          <ErrorImageContainer imageUrl="https://i.imgur.com/U3vTGjX.png" />
+          <ErrorImageContainer src="https://i.imgur.com/U3vTGjX.png" />
           <ErrorImageText>There’s a Leak in the Website</ErrorImageText>
         </ErrorImageOverlay>
       )

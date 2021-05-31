@@ -12,6 +12,7 @@ export const CollectionTitle = styled.h2`
 `
 
 export const CollectionItemsContainer = styled.div`
+  align-self: stretch;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 40px 10px;

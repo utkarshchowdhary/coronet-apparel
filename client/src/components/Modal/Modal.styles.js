@@ -10,12 +10,11 @@ export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   padding: 1.6rem 3rem;
   border: 3px solid black;
   border-radius: 5px;
-  background: white;
+  background: #fff;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
   z-index: 100;
 `
@@ -28,22 +27,20 @@ export const MessageContainer = styled.h4`
 
 export const OptionsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
 `
 
 export const ButtonContainer = styled.button`
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-  background: white;
+  background: #fff;
   padding: 0.3rem 2.4rem;
   border: 3px solid black;
-  margin-right: 2.6rem;
   box-shadow: 0 0 0 black;
   transition: all 0.2s;
 
-  &:last-child {
-    margin-right: 0;
+  &:not(:last-child) {
+    margin-right: 2.6rem;
   }
 
   &:hover {
@@ -57,6 +54,8 @@ export const ButtonContainer = styled.button`
   }
 
   @media screen and (max-width: 768px) {
-    margin-right: 1.2rem;
+    &:not(:last-child) {
+      margin-right: 1.2rem;
+    }
   }
 `

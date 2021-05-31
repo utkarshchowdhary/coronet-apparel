@@ -9,8 +9,8 @@ import { CollectionsOverviewContainer } from './CollectionsOverview.styles'
 const CollectionsOverview = ({ collections }) => {
   return (
     <CollectionsOverviewContainer>
-      {collections.map(({ id, ...otherCollectionProps }) => (
-        <CollectionPreview key={id} {...otherCollectionProps} />
+      {collections.map((collection) => (
+        <CollectionPreview key={collection.id} collection={collection} />
       ))}
     </CollectionsOverviewContainer>
   )

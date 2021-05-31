@@ -1,12 +1,11 @@
 import styled from 'styled-components'
-import CustomButton from '../CustomButton/CustomButton'
+import Button from '../Button/Button'
 
-export const AddButton = styled(CustomButton)`
+export const AddButton = styled(Button)`
   width: 80%;
-  opacity: 0.85;
+  opacity: 0;
   position: absolute;
   top: 255px;
-  display: none;
 
   @media screen and (max-width: 768px) {
     display: flex;
@@ -17,7 +16,7 @@ export const AddButton = styled(CustomButton)`
 `
 
 export const BackgroundImage = styled.div`
-  width: 100%;
+  align-self: stretch;
   height: 95%;
   background-size: cover;
   background-position: center;
@@ -26,7 +25,6 @@ export const BackgroundImage = styled.div`
 `
 
 export const CollectionItemContainer = styled.div`
-  width: 22vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -36,26 +34,20 @@ export const CollectionItemContainer = styled.div`
   &:hover {
     ${BackgroundImage} {
       opacity: 0.8;
+
+      @media screen and (max-width: 768px) {
+        opacity: 1;
+      }
     }
 
     ${AddButton} {
-      display: flex;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    width: 40vw;
-
-    &:hover {
-      ${BackgroundImage} {
-        opacity: unset;
-      }
+      opacity: 0.85;
     }
   }
 `
 
 export const CollectionFooterContainer = styled.div`
-  width: 100%;
+  align-self: stretch;
   height: 5%;
   display: flex;
   justify-content: space-between;

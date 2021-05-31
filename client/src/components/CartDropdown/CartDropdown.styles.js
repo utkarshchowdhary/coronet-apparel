@@ -1,21 +1,21 @@
 import styled from 'styled-components'
-import CustomButton from '../CustomButton/CustomButton'
+import Button from '../Button/Button'
 
 export const CartDropdownContainer = styled.div`
-  position: absolute;
-  width: 275px;
   height: 340px;
+  width: 275px;
+  position: absolute;
+  top: 90px;
+  right: 40px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   border: 1px solid black;
   background-color: white;
-  top: 90px;
-  right: 40px;
   z-index: 5;
 `
 
-export const CartDropdownButton = styled(CustomButton)`
+export const CartDropdownButton = styled(Button)`
   margin-top: auto;
 `
 
@@ -26,7 +26,5 @@ export const EmptyMessageContainer = styled.span`
 
 export const CartItemsContainer = styled.div`
   max-height: 240px;
-  display: flex;
-  flex-direction: column;
   overflow: auto;
 `

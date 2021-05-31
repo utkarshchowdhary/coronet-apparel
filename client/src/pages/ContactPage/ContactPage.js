@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 import FormInput from '../../components/FormInput/FormInput'
-import CustomButton from '../../components/CustomButton/CustomButton'
+import Button from '../../components/Button/Button'
 import Modal from '../../components/Modal/Modal'
 
 import {
@@ -109,13 +109,13 @@ const ContactPage = () => {
               required
             />
             <ButtonContainer>
-              <CustomButton type="submit">
+              <Button type="submit">
                 {isLoading ? (
                   <SpinnerContainer></SpinnerContainer>
                 ) : (
                   <p>Send</p>
                 )}
-              </CustomButton>
+              </Button>
             </ButtonContainer>
           </form>
         </FormContainer>

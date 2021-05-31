@@ -20,15 +20,15 @@ import {
 } from './CheckoutPage.styles'
 
 const CheckoutPage = ({ cartItems, total, currentUser }) => {
-  const [output, setOutput] = useState('')
+  const [message, setMessage] = useState('')
 
-  const hideOutputHandler = () => {
-    setOutput('')
+  const hideMessageHandler = () => {
+    setMessage('')
   }
 
   return (
     <>
-      {output && <Modal message={output} hide={hideOutputHandler} />}
+      {message && <Modal message={message} hide={hideMessageHandler} />}
       <CheckoutPageContainer>
         <CheckoutHeaderContainer>
           <HeaderBlockContainer>
@@ -60,7 +60,7 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
           <RemindContainer>*Please Login before checkout*</RemindContainer>
         )}
         {currentUser && total > 0 && (
-          <StripeCheckoutButton price={total} setOutput={setOutput} />
+          <StripeCheckoutButton price={total} setMessage={setMessage} />
         )}
       </CheckoutPageContainer>
     </>

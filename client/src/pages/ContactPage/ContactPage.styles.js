@@ -6,23 +6,20 @@ export const ContactPageContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: auto;
-  margin: 30px auto;
+  margin: 0 auto;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    width: unset;
     margin: 1rem;
-    align-items: center;
 
-    > *:first-child {
+    & > *:first-child {
       margin-bottom: 50px;
     }
   }
 `
 
 export const InfoContainer = styled.div`
-  width: 380px;
+  max-width: 380px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -43,10 +40,9 @@ export const InfoContainer = styled.div`
 `
 
 export const FormContainer = styled.div`
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
 
   h1 {
     margin: 0;
