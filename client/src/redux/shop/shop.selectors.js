@@ -12,10 +12,14 @@ export const selectCollectionsForPreview = createSelector(
   (collections) => (collections ? Object.values(collections) : [])
 )
 
-export const selectCollection = (collectionUrlParam) =>
-  createSelector([selectCollections], (collections) =>
+export const selectCollectionUrlParam = (state, collectionUrlParam) =>
+  collectionUrlParam
+
+export const selectCollection = createSelector(
+  [selectCollections, selectCollectionUrlParam],
+  (collections, collectionUrlParam) =>
     collections ? collections[collectionUrlParam] : null
-  )
+)
 
 export const selectIsCollectionFetching = createSelector(
   [selectShop],
