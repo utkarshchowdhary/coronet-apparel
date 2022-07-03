@@ -42,10 +42,10 @@ app.post('/api/payment', (req, res) => {
 
 app.post('/api/contact', (req, res) => {
   const mailOptions = {
-    from: `${req.body.name} <${req.body.email}>`,
-    to: process.env.MAIL_RECEIVER,
+    to: process.env.RECIPIENT_EMAIL,
+    from: process.env.SENDER_EMAIL,
     subject: 'Coronet Apparel Automated Mail',
-    text: req.body.message
+    text: `Message from ${req.body.name} <${req.body.email}>:\n${req.body.message}`
   }
 
   transporter.sendMail(mailOptions, (err, info) => {
