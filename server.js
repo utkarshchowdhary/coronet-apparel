@@ -40,7 +40,7 @@ app.post('/api/payment', (req, res) => {
   })
 })
 
-app.post('/api/send', (req, res) => {
+app.post('/api/mail', (req, res) => {
   const mailOptions = {
     from: `${req.body.name} <${req.body.email}>`,
     to: process.env.MAIL_RECEIVER,

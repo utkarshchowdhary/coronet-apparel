@@ -28,7 +28,7 @@ const ContactPage = () => {
     e.preventDefault()
     setIsLoading(true)
     axios({
-      url: '/api/send',
+      url: '/api/mail',
       method: 'POST',
       data: {
         name,
