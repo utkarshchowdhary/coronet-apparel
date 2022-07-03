@@ -8,7 +8,7 @@ const Backdrop = ({ hide }) => {
 
   return ReactDOM.createPortal(
     content,
-    document.getElementById('backdrop-hook')
+    document.getElementById('backdrop-root')
   )
 }
 
