@@ -5,6 +5,15 @@ const nodemailer = require('nodemailer')
 const compression = require('compression')
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
+  auth: {
+    user: process.env.SMTP_USER_NAME,
+    pass: process.env.SMTP_PASSWORD
+  }
+})
+
 const app = express()
 
 app.set('port', process.env.PORT)
@@ -32,15 +41,6 @@ app.post('/api/payment', (req, res) => {
 })
 
 app.post('/api/send', (req, res) => {
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    auth: {
-      user: process.env.SMTP_USER_NAME,
-      pass: process.env.SMTP_PASSWORD
-    }
-  })
-
   const mailOptions = {
     from: `${req.body.name} <${req.body.email}>`,
     to: process.env.MAIL_RECEIVER,
