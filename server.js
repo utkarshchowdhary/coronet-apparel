@@ -45,7 +45,7 @@ app.post('/api/contact', (req, res) => {
     to: process.env.RECIPIENT_EMAIL,
     from: process.env.SENDER_EMAIL,
     subject: 'Coronet Apparel Automated Mail',
-    text: `Message from ${req.body.name} <${req.body.email}>:\n${req.body.message}`
+    text: `Message from ${req.body.name} <${req.body.email}>: ${req.body.message}`
   }
 
   transporter.sendMail(mailOptions, (err, info) => {
