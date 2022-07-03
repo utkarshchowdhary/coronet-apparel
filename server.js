@@ -15,10 +15,6 @@ app.use(compression())
 
 app.use(express.static(path.join(__dirname, 'client/build')))
 
-app.get('/service-worker.js', (_req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'))
-})
-
 app.post('/api/payment', (req, res) => {
   const body = {
     source: req.body.token.id,
