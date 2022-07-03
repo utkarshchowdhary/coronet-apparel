@@ -1,10 +1,8 @@
+require('dotenv/config')
 const path = require('path')
 const express = require('express')
 const nodemailer = require('nodemailer')
 const compression = require('compression')
-const enforce = require('express-sslify')
-
-if (process.env.NODE_ENV === 'development') require('dotenv').config()
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 const app = express()
@@ -13,21 +11,15 @@ app.set('port', process.env.PORT)
 
 app.use(express.json({ limit: '10kb' }))
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(compression())
-  app.use(enforce.HTTPS({ trustProtoHeader: true }))
-  app.use(express.static(path.join(__dirname, 'client/build')))
+app.use(compression())
 
-  app.get('/service-worker.js', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'))
-  })
+app.use(express.static(path.join(__dirname, 'client/build')))
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-  })
-}
+app.get('/service-worker.js', (_req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'))
+})
 
-app.post('/payment', (req, res) => {
+app.post('/api/payment', (req, res) => {
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
@@ -43,7 +35,7 @@ app.post('/payment', (req, res) => {
   })
 })
 
-app.post('/send', (req, res) => {
+app.post('/api/send', (req, res) => {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
@@ -55,7 +47,7 @@ app.post('/send', (req, res) => {
 
   const mailOptions = {
     from: `${req.body.name} <${req.body.email}>`,
-    to: process.env.SMTP_SEND_TO,
+    to: process.env.MAIL_RECEIVER,
     subject: 'Coronet Apparel Automated Mail',
     text: req.body.message
   }
@@ -69,7 +61,10 @@ app.post('/send', (req, res) => {
   })
 })
 
-app.listen(app.get('port'), (error) => {
-  if (error) throw error
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
+
+app.listen(app.get('port'), () => {
   console.log(`Server running on port ${app.get('port')}`)
 })
