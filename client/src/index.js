@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import store, { persistor } from './redux/store'
+import Spinner from './components/Spinner/Spinner'
 import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate loading={<Spinner />} persistor={persistor}>
         <App />
       </PersistGate>
     </Provider>
