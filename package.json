@@ -1,5 +1,5 @@
 {
-  "name": "coronet-apparel-server",
+  "name": "coronet-apparel",
   "version": "1.0.0",
   "scripts": {
     "client": "cd client && npm start",
@@ -20,5 +20,18 @@
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
     "nodemon": "2.0.6"
-  }
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkarshchowdhary/coronet-apparel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utkarshchowdhary/coronet-apparel/issues"
+  },
+  "homepage": "https://github.com/utkarshchowdhary/coronet-apparel#readme",
+  "description": "An ecommerce clothing website"
 }
