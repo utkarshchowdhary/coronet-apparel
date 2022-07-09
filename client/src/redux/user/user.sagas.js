@@ -6,7 +6,14 @@ import {
   getCurrentUser,
   createUserProfileDocument
 } from '../../firebase/firebase'
-
+import {
+  CHECK_USER_SESSION,
+  EMAIL_SIGN_IN_START,
+  GOOGLE_SIGN_IN_START,
+  SIGN_OUT_START,
+  SIGN_UP_START,
+  SIGN_UP_SUCCESS
+} from './user.types'
 import {
   signInSuccess,
   signInFailure,
@@ -77,27 +84,27 @@ export function* signInAfterSignUp({ payload: { user, additionalData } }) {
 }
 
 export function* onGoogleSignInStart() {
-  yield takeLatest('GOOGLE_SIGN_IN_START', signInWithGoogle)
+  yield takeLatest(GOOGLE_SIGN_IN_START, signInWithGoogle)
 }
 
 export function* onEmailSignInStart() {
-  yield takeLatest('EMAIL_SIGN_IN_START', signInWithEmail)
+  yield takeLatest(EMAIL_SIGN_IN_START, signInWithEmail)
 }
 
 export function* onCheckUserSession() {
-  yield takeLatest('CHECK_USER_SESSION', isUserAuthenticated)
+  yield takeLatest(CHECK_USER_SESSION, isUserAuthenticated)
 }
 
 export function* onSignOutStart() {
-  yield takeLatest('SIGN_OUT_START', signOut)
+  yield takeLatest(SIGN_OUT_START, signOut)
 }
 
 export function* onSignUpStart() {
-  yield takeLatest('SIGN_UP_START', signUp)
+  yield takeLatest(SIGN_UP_START, signUp)
 }
 
 export function* onSignupSuccess() {
-  yield takeLatest('SIGN_UP_SUCCESS', signInAfterSignUp)
+  yield takeLatest(SIGN_UP_SUCCESS, signInAfterSignUp)
 }
 
 export default function* userSagas() {

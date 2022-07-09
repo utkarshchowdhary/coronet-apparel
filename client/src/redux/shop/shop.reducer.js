@@ -1,24 +1,30 @@
-const INITIAL_STATE = {
-  collections: null,
+import {
+  FETCH_COLLECTIONS_START,
+  FETCH_COLLECTIONS_SUCCESS,
+  FETCH_COLLECTIONS_FAILURE
+} from './shop.types'
+
+const initialState = {
   isFetching: false,
+  collections: null,
   error: null
 }
 
-const shopReducer = (state = INITIAL_STATE, action) => {
+const shopReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_COLLECTIONS_START':
+    case FETCH_COLLECTIONS_START:
       return {
         ...state,
         isFetching: true
       }
-    case 'FETCH_COLLECTIONS_SUCCESS':
+    case FETCH_COLLECTIONS_SUCCESS:
       return {
         ...state,
         isFetching: false,
         error: null,
         collections: action.payload
       }
-    case 'FETCH_COLLECTIONS_FAILURE':
+    case FETCH_COLLECTIONS_FAILURE:
       return {
         ...state,
         isFetching: false,
