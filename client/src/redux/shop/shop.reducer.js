@@ -7,7 +7,7 @@ import {
 const initialState = {
   isFetching: false,
   collections: null,
-  error: null
+  error: ''
 }
 
 const shopReducer = (state = initialState, action) => {
@@ -21,7 +21,7 @@ const shopReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        error: null,
+        error: '',
         collections: action.payload
       }
     case FETCH_COLLECTIONS_FAILURE:

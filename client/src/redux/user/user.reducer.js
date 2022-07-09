@@ -1,4 +1,5 @@
 import {
+  FINISH_CHECKING,
   SIGN_IN_FAILURE,
   SIGN_IN_SUCCESS,
   SIGN_OUT_FAILURE,
@@ -7,17 +8,26 @@ import {
 } from './user.types'
 
 const initialState = {
+  isChecking: true,
   currentUser: null,
-  error: null
+  error: ''
 }
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    case FINISH_CHECKING:
+      return { ...state, isChecking: false }
     case SIGN_IN_SUCCESS:
-      return { ...state, currentUser: action.payload, error: null }
+      return {
+        ...state,
+        isChecking: false,
+        currentUser: action.payload,
+        error: ''
+      }
     case SIGN_OUT_SUCCESS:
-      return { ...state, currentUser: null, error: null }
+      return { ...state, currentUser: null, error: '' }
     case SIGN_IN_FAILURE:
+      return { ...state, isChecking: false, error: action.payload }
     case SIGN_OUT_FAILURE:
     case SIGN_UP_FAILURE:
       return { ...state, error: action.payload }

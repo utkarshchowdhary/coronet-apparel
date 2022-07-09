@@ -19,7 +19,7 @@ export const GroupContainer = styled.div`
 `
 
 const shouldFormInputShrink = ({ value }) => {
-  return value ? shrinkLabelStyles : null
+  return value && shrinkLabelStyles
 }
 
 export const FormInputLabel = styled.label`

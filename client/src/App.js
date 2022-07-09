@@ -1,5 +1,10 @@
 import React, { useEffect, lazy, Suspense } from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
@@ -7,7 +12,10 @@ import Header from './components/Header/Header'
 import Spinner from './components/Spinner/Spinner'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
-import { selectCurrentUser } from './redux/user/user.selectors'
+import {
+  selectIsUserChecking,
+  selectCurrentUser
+} from './redux/user/user.selectors'
 import { checkUserSession } from './redux/user/user.actions'
 
 import { GlobalStyle } from './global.styles'
@@ -20,13 +28,13 @@ const SignInAndSignUpPage = lazy(() =>
 )
 const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'))
 
-const App = ({ currentUser, checkUserSession }) => {
+const App = ({ isChecking, currentUser, checkUserSession }) => {
   useEffect(() => {
     checkUserSession()
   }, [checkUserSession])
 
   return (
-    <BrowserRouter>
+    <Router>
       <GlobalStyle />
       <Header />
       <ErrorBoundary>
@@ -40,17 +48,25 @@ const App = ({ currentUser, checkUserSession }) => {
               exact
               path="/signin"
               render={() =>
-                currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
+                isChecking ? (
+                  <Spinner />
+                ) : currentUser ? (
+                  <Redirect to="/" />
+                ) : (
+                  <SignInAndSignUpPage />
+                )
               }
             />
+            <Redirect to="/" />
           </Switch>
         </Suspense>
       </ErrorBoundary>
-    </BrowserRouter>
+    </Router>
   )
 }
 
 const mapStateToProps = createStructuredSelector({
+  isChecking: selectIsUserChecking,
   currentUser: selectCurrentUser
 })
 

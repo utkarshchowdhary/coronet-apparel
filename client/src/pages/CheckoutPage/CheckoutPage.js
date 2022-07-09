@@ -5,7 +5,10 @@ import {
   selectCartItems,
   selectCartTotal
 } from '../../redux/cart/cart.selectors'
-import { selectCurrentUser } from '../../redux/user/user.selectors'
+import {
+  selectIsUserChecking,
+  selectCurrentUser
+} from '../../redux/user/user.selectors'
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem'
 import StripeCheckoutButton from '../../components/StripeCheckoutButton/StripeCheckoutButton'
 import Modal from '../../components/Modal/Modal'
@@ -19,7 +22,7 @@ import {
   RemindContainer
 } from './CheckoutPage.styles'
 
-const CheckoutPage = ({ cartItems, total, currentUser }) => {
+const CheckoutPage = ({ isChecking, currentUser, cartItems, total }) => {
   const [message, setMessage] = useState('')
 
   const hideMessageHandler = () => {
@@ -51,12 +54,14 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
           <CheckoutItem key={cartItem.id} cartItem={cartItem} />
         ))}
         <TotalContainer>TOTAL: ${total}</TotalContainer>
-        <WarningContainer>
-          *Please use following test credit card for payments*
-          <br />
-          4242 4242 4242 4242 - Exp: Any future date - CVV- Any 3 digit number
-        </WarningContainer>
-        {!currentUser && (
+        {currentUser && (
+          <WarningContainer>
+            *Please use following test credit card for payments*
+            <br />
+            4242 4242 4242 4242 - Exp: Any future date - CVV- Any 3 digit number
+          </WarningContainer>
+        )}
+        {!isChecking && !currentUser && (
           <RemindContainer>*Please Login before checkout*</RemindContainer>
         )}
         {currentUser && total > 0 && (
@@ -68,9 +73,10 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
 }
 
 const mapStateToProps = createStructuredSelector({
+  isChecking: selectIsUserChecking,
+  currentUser: selectCurrentUser,
   cartItems: selectCartItems,
-  total: selectCartTotal,
-  currentUser: selectCurrentUser
+  total: selectCartTotal
 })
 
 export default connect(mapStateToProps)(CheckoutPage)

@@ -1,5 +1,6 @@
 import {
   CHECK_USER_SESSION,
+  FINISH_CHECKING,
   EMAIL_SIGN_IN_START,
   GOOGLE_SIGN_IN_START,
   SIGN_IN_FAILURE,
@@ -33,6 +34,10 @@ export const emailSignInStart = ({ email, password }) => ({
 
 export const checkUserSession = () => ({
   type: CHECK_USER_SESSION
+})
+
+export const finishChecking = () => ({
+  type: FINISH_CHECKING
 })
 
 export const signOutStart = () => ({

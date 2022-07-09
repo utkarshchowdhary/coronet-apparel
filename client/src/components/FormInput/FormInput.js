@@ -10,7 +10,7 @@ const FormInput = ({ element = 'input', label, ...props }) => {
   return (
     <GroupContainer>
       <FormInputContainer as={element} {...props} />
-      {label ? <FormInputLabel>{label}</FormInputLabel> : null}
+      {label && <FormInputLabel>{label}</FormInputLabel>}
     </GroupContainer>
   )
 }

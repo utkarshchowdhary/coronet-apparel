@@ -15,6 +15,7 @@ import {
   SIGN_UP_SUCCESS
 } from './user.types'
 import {
+  finishChecking,
   signInSuccess,
   signInFailure,
   signOutSuccess,
@@ -54,8 +55,11 @@ export function* signInWithEmail({ payload: { email, password } }) {
 export function* isUserAuthenticated() {
   try {
     const user = yield getCurrentUser()
-    if (!user) return
-    yield getSnapshotFromUserAndAuthenticate(user)
+    if (!user) {
+      yield put(finishChecking())
+    } else {
+      yield getSnapshotFromUserAndAuthenticate(user)
+    }
   } catch (err) {
     yield put(signInFailure(err.message))
   }

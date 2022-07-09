@@ -14,7 +14,7 @@ import {
 } from './CartDropdown.styles'
 
 const CartDropdown = ({ cartItems, history, toggleCartHidden }) => {
-  const ref = useRef(null)
+  const ref = useRef()
 
   const clickListener = useCallback(
     (e) => {
@@ -50,7 +50,7 @@ const CartDropdown = ({ cartItems, history, toggleCartHidden }) => {
           <CartItem key={cartItem.id} item={cartItem} />
         ))}
       </CartItemsContainer>
-      {cartItems.length ? null : (
+      {!cartItems.length && (
         <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
       )}
       <CartDropdownButton
