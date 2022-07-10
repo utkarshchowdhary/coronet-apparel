@@ -5,9 +5,10 @@ import StripeCheckout from 'react-stripe-checkout'
 
 import { clearCart } from '../../redux/cart/cart.actions'
 
+const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+
 const StripeCheckoutButton = ({ price, setMessage, clearCart }) => {
   const priceForStripe = price * 100
-  const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
 
   const onToken = (token) => {
     axios({

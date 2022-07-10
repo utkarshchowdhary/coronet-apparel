@@ -1,7 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import { selectCollection } from '../../redux/shop/shop.selectors'
 import CollectionItem from '../../components/CollectionItem/CollectionItem'
 
 import {
@@ -24,8 +22,4 @@ const CollectionPage = ({ collection }) => {
   )
 }
 
-const mapStateToProps = (state, props) => ({
-  collection: selectCollection(state, props.match.params.collectionId)
-})
-
-export default connect(mapStateToProps)(CollectionPage)
+export default CollectionPage

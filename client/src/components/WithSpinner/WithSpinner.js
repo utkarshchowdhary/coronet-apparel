@@ -4,8 +4,7 @@ import Spinner from '../Spinner/Spinner'
 
 const WithSpinner =
   (WrappedComponent) =>
-  ({ isLoading, ...props }) => {
-    return isLoading ? <Spinner /> : <WrappedComponent {...props} />
-  }
+  ({ isLoading, ...props }) =>
+    isLoading ? <Spinner /> : <WrappedComponent {...props} />
 
 export default WithSpinner

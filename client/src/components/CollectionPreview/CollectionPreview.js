@@ -23,7 +23,7 @@ const CollectionPreview = ({
       </TitleContainer>
       <PreviewContainer>
         {items
-          .filter((item, i) => i < 4)
+          .filter((_item, i) => i < 4)
           .map((item) => (
             <CollectionItem key={item.id} item={item} />
           ))}
