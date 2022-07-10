@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
+
 import { selectCartHidden } from '../../redux/cart/cart.selectors'
 import {
   selectIsUserChecking,
@@ -9,7 +10,6 @@ import {
 import { signOutStart } from '../../redux/user/user.actions'
 import CartIcon from '../CartIcon/CartIcon'
 import CartDropdown from '../CartDropdown/CartDropdown'
-
 import { ReactComponent as Logo } from '../../assets/crown.svg'
 
 import {

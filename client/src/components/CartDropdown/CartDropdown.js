@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
+
 import { withRouter } from 'react-router-dom'
 import CartItem from '../CartItem/CartItem'
 import { selectCartItems } from '../../redux/cart/cart.selectors'

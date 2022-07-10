@@ -11,7 +11,6 @@ import { createStructuredSelector } from 'reselect'
 import Header from './components/Header/Header'
 import Spinner from './components/Spinner/Spinner'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
-
 import {
   selectIsUserChecking,
   selectCurrentUser
@@ -22,11 +21,11 @@ import { GlobalStyle } from './global.styles'
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
 const ShopPage = lazy(() => import('./pages/ShopPage/ShopPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'))
 const CheckoutPage = lazy(() => import('./pages/CheckoutPage/CheckoutPage'))
 const SignInAndSignUpPage = lazy(() =>
   import('./pages/SignInAndSignUpPage/SignInAndSignUpPage')
 )
-const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'))
 
 const App = ({ isChecking, currentUser, checkUserSession }) => {
   useEffect(() => {
@@ -43,9 +42,8 @@ const App = ({ isChecking, currentUser, checkUserSession }) => {
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
             <Route path="/contact" component={ContactPage} />
-            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route path="/checkout" component={CheckoutPage} />
             <Route
-              exact
               path="/signin"
               render={() =>
                 isChecking ? (

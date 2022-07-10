@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+
 import FormInput from '../FormInput/FormInput'
 import Button from '../Button/Button'
 import Modal from '../Modal/Modal'
 import { signUpStart } from '../../redux/user/user.actions'
+
 import { SignUpContainer } from './SignUp.styles'
 
 const SignUp = ({ signUpStart }) => {

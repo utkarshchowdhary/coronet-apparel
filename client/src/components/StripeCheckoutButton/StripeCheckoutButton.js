@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import StripeCheckout from 'react-stripe-checkout'
+
 import { clearCart } from '../../redux/cart/cart.actions'
 
 const StripeCheckoutButton = ({ price, setMessage, clearCart }) => {

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+
 import alternatingArrowheadSVG from './assets/alternating-arrowhead.svg'
 
 export const GlobalStyle = createGlobalStyle`

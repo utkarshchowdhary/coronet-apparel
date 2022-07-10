@@ -1,8 +1,8 @@
 import React, { useEffect, lazy, Suspense } from 'react'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { fetchCollectionsStart } from '../../redux/shop/shop.actions'
 
+import { fetchCollectionsStart } from '../../redux/shop/shop.actions'
 import Spinner from '../../components/Spinner/Spinner'
 
 const CollectionsOverviewContainer = lazy(() =>

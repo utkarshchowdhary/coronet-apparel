@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import zigZagSVG from '../../assets/zig-zag.svg'
 
 export const ContactPageContainer = styled.div`
